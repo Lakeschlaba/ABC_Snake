@@ -21,13 +21,30 @@ namespace ABC_Snake
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
+
         public Quadrat Koerperteil = new Quadrat();
         public Food Foodteil = new Food();
-        DispatcherTimer timer = new DispatcherTimer();
+        
+
         public int X = 50;
         public int Y = 50;
         public int richtung = 0;
         private int vorhaerigeRichtung = 0;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            GameState.itemCount = 1;                                         //Muss angepasst werden!!!
+            DrawFood();
+
+            Koerperteil.Zeichnen(Spielfeld);
+            timer.Interval = TimeSpan.FromMilliseconds(200);
+            timer.Tick += Animation; // Delegate
+            timer.Start();
+            
+        }
 
         private enum Movingdirection
         {
@@ -36,15 +53,6 @@ namespace ABC_Snake
             LinksA = 9,
             RechtsD = 7
         };
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            timer.Interval = TimeSpan.FromMilliseconds(200);
-            timer.Tick += Animation; // Delegate
-            timer.Start();
-            DrawFood();
-        }
 
         private void DrawFood()
         {
@@ -58,21 +66,28 @@ namespace ABC_Snake
 
         void Animation(object sender, EventArgs e)
         {
-            Spielfeld.Children.Clear();
-            Koerperteil.Zeichnen(Spielfeld);
+
             switch (richtung)
             {
                 case (int)Movingdirection.UntenS:
                     Koerperteil.Y -= 5;
+                    Koerperteil.Zeichnen(Spielfeld);
+                    Koerperteil.remove(Spielfeld);
                     break;
                 case (int)Movingdirection.ObenW:
                     Koerperteil.Y += 5;
+                    Koerperteil.Zeichnen(Spielfeld);
+                    Koerperteil.remove(Spielfeld);
                     break;
                 case (int)Movingdirection.RechtsD:
                     Koerperteil.X += 5;
+                    Koerperteil.Zeichnen(Spielfeld);
+                    Koerperteil.remove(Spielfeld);
                     break;
                 case (int)Movingdirection.LinksA:
                     Koerperteil.X -= 5;
+                    Koerperteil.Zeichnen(Spielfeld);
+                    Koerperteil.remove(Spielfeld);
                     break;
             }
 
@@ -80,13 +95,13 @@ namespace ABC_Snake
             {
                 SnakeOver();
             }
+           
         }
 
        
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            Spielfeld.Children.Clear();
-            Koerperteil.Zeichnen(Spielfeld);
+
             switch (e.Key)
             {
                 case Key.W:

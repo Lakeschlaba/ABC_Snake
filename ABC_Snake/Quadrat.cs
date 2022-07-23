@@ -19,7 +19,7 @@ namespace ABC_Snake
     public class Quadrat
     {
         // Eigenschaft
-        public Rectangle block = new Rectangle();
+       
         public int Breite = 10;
         public int Hoehe = 10;
         public int X;
@@ -28,6 +28,10 @@ namespace ABC_Snake
 
         public void Zeichnen(Canvas Spielfeld)
         {
+
+            GameState.snakeCount++;
+
+            Rectangle block = new Rectangle();
             block.Height = Hoehe;
             block.Width = Breite;
 
@@ -37,7 +41,19 @@ namespace ABC_Snake
 
             Canvas.SetTop(block, Y);
             Canvas.SetLeft(block, X);
+
+
+
             Spielfeld.Children.Add(block);
+           
+        }
+
+        public void remove(Canvas feld)
+        {
+            if (GameState.snakeCount > 0)
+            {
+                feld.Children.RemoveAt(GameState.itemCount);
+            }
         }
 
 

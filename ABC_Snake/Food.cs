@@ -20,8 +20,10 @@ namespace ABC_Snake
     {
         // Eigenschaft
         public Rectangle blockFood = new Rectangle();
-        private readonly List<Point> _foodPoint = new List<Point>();
         public Random rnd = new Random();
+
+        private readonly List<Point> _foodPoint = new List<Point>();
+
         public int Breite = 10;
         public int Hoehe = 10;
         public int X;
@@ -30,6 +32,7 @@ namespace ABC_Snake
 
         public void ZeichnenFood(Canvas Spielfeld)
         {
+
             blockFood.Height = Hoehe;
             blockFood.Width = Breite;
 
@@ -43,6 +46,7 @@ namespace ABC_Snake
             Canvas.SetLeft(blockFood, foodPoint.X);
             Spielfeld.Children.Add(blockFood);
             _foodPoint.Add(foodPoint);
+           
         }
 
     }
