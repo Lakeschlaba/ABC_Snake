@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ABC_Snake"
         mc:Ignorable="d"
         Title="ABC_Snake" Height="400" Width="700" ResizeMode="NoResize" KeyDown="Window_KeyDown">
-    <Border BorderThickness="2" BorderBrush="red" CornerRadius="2" MaxWidth="680" MaxHeight="380">
+    <Border BorderThickness="2" BorderBrush="red" CornerRadius="2" MaxWidth="700" MaxHeight="380">
         <Grid Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>

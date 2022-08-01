@@ -19,13 +19,13 @@ namespace ABC_Snake
     public class Food
     {
         // Eigenschaft
+        
         public Rectangle blockFood = new Rectangle();
         public Random rnd = new Random();
+        public readonly List<Point> _foodPoint = new List<Point>();
 
-        private readonly List<Point> _foodPoint = new List<Point>();
-
-        public int Breite = 10;
-        public int Hoehe = 10;
+        public int Breite = 5;
+        public int Hoehe = 5;
         public int X;
         public int Y;
         public Color Farbe = Colors.Red;
@@ -40,14 +40,12 @@ namespace ABC_Snake
             pinsel.Color = Farbe;
             blockFood.Fill = pinsel;
 
-            Point foodPoint = new Point(rnd.Next(5, 680), rnd.Next(5, 380));
+            Point foodPoint = new Point(rnd.Next(5, 680), rnd.Next(5, 380)); //680, 380
 
             Canvas.SetTop(blockFood, foodPoint.Y);
             Canvas.SetLeft(blockFood, foodPoint.X);
             Spielfeld.Children.Add(blockFood);
             _foodPoint.Add(foodPoint);
-           
         }
-
     }
 }

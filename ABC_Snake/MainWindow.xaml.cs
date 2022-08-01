@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Media;
 
 namespace ABC_Snake
 {
@@ -25,10 +26,11 @@ namespace ABC_Snake
 
         public Quadrat Koerperteil = new Quadrat();
         public Food Foodteil = new Food();
-        
 
-        public int X = 50;
-        public int Y = 50;
+        SoundPlayer sound = new SoundPlayer(@"C:\Users\gereo\Documents\ProgrammeC#\ABC_Snake\windows_xp_shutdown.wav");
+
+        public int X;
+        public int Y;
         public int richtung = 0;
         private int vorhaerigeRichtung = 0;
 
@@ -43,7 +45,7 @@ namespace ABC_Snake
             timer.Interval = TimeSpan.FromMilliseconds(200);
             timer.Tick += Animation; // Delegate
             timer.Start();
-            
+
         }
 
         private enum Movingdirection
@@ -57,11 +59,9 @@ namespace ABC_Snake
         private void DrawFood()
         {
             Foodteil.ZeichnenFood(Spielfeld);
-            if ((Koerperteil.X == Foodteil.X) && (Koerperteil.Y == Foodteil.Y))
-            {
-                SnakeOver();
-            }
-               
+            //Collision
+
+
         }
 
         void Animation(object sender, EventArgs e)
@@ -91,13 +91,12 @@ namespace ABC_Snake
                     break;
             }
 
-            if ((Koerperteil.X < 0) || (Koerperteil.X > 680) || (Koerperteil.Y < 0) || (Koerperteil.Y > 380))
+            if ((Koerperteil.X < 0) || (Koerperteil.X > 670) || (Koerperteil.Y < 0) || (Koerperteil.Y > 345))
             {
-                SnakeOver();
+                SnakeOver();    
             }
-           
+            
         }
-
        
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -138,13 +137,20 @@ namespace ABC_Snake
         {
 
         }
-
+        
         private void SnakeOver()
         {
             timer.Stop();
+            PlaySound();
             MessageBox.Show($@"You Lose!");
             this.Close();
         }
+
+        private void PlaySound()
+        {
+            sound.Play();
+        }
+
     }
 
 }

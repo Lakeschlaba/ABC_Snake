@@ -41,22 +41,17 @@ namespace ABC_Snake
 
             Canvas.SetTop(block, Y);
             Canvas.SetLeft(block, X);
-
-
-
             Spielfeld.Children.Add(block);
            
         }
 
-        public void remove(Canvas feld)
+        public void remove(Canvas Spielfeld)
         {
             if (GameState.snakeCount > 0)
             {
-                feld.Children.RemoveAt(GameState.itemCount);
+                Spielfeld.Children.RemoveAt(GameState.itemCount);
             }
+
         }
-
-
     }
-
 }
