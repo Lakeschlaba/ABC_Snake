@@ -14,21 +14,24 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+
 namespace ABC_Snake
 {
     public class Quadrat
     {
         // Eigenschaft
-       
+        public List<Point> _snakePoints = new List<Point>();
+
         public int Breite = 10;
         public int Hoehe = 10;
         public int X;
-        public int Y = 5;
+        public int Y;
+        public int laenge = 1;
+
         public Color Farbe = Colors.White;
 
-        public void Zeichnen(Canvas Spielfeld)
+        public void Zeichnen(Canvas Spielfeld, Point point)
         {
-
             GameState.snakeCount++;
 
             Rectangle block = new Rectangle();
@@ -39,10 +42,19 @@ namespace ABC_Snake
             pinsel.Color = Farbe;
             block.Fill = pinsel;
 
-            Canvas.SetTop(block, Y);
-            Canvas.SetLeft(block, X);
+            Canvas.SetTop(block, point.Y);
+            Canvas.SetLeft(block, point.X);
+
+            int count = Spielfeld.Children.Count;
             Spielfeld.Children.Add(block);
-           
+            _snakePoints.Add(point);
+
+            if (count > laenge)
+            {
+                Spielfeld.Children.RemoveAt(count - laenge + 0);
+                _snakePoints.RemoveAt(count - laenge);
+            }
+
         }
 
         public void remove(Canvas Spielfeld)

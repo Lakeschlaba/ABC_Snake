@@ -46,6 +46,7 @@ namespace ABC_Snake
             Canvas.SetLeft(blockFood, foodPoint.X);
             Spielfeld.Children.Add(blockFood);
             _foodPoint.Add(foodPoint);
+
         }
     }
 }
