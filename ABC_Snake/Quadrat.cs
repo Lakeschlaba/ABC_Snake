@@ -32,7 +32,7 @@ namespace ABC_Snake
 
         public void Zeichnen(Canvas Spielfeld, Point point)
         {
-            GameState.snakeCount++;
+            //GameState.snakeCount++;
 
             Rectangle block = new Rectangle();
             block.Height = Hoehe;
@@ -57,13 +57,14 @@ namespace ABC_Snake
 
         }
 
-        public void remove(Canvas Spielfeld)
-        {
-            if (GameState.snakeCount > 0)
-            {
-                Spielfeld.Children.RemoveAt(GameState.itemCount);
-            }
+        //public void remove(Canvas Spielfeld)
+        //{
+            //if (GameState.snakeCount > 0)
+            //{
+                //Spielfeld.Children.RemoveAt(GameState.itemCount);
+            //}
 
-        }
+        //}
+
     }
 }

@@ -50,14 +50,14 @@ namespace ABC_Snake
 
             InitializeComponent();
 
-            GameState.itemCount = 1; //Muss angepasst werden!!!
+            //GameState.itemCount = 1;
             for (int n = 0; n < 1; n++) //Solange n kleiner als 1 ist wird folgenes ausgeführt
             {
                 ZeichnenFood(n); //Methode ZeichnenFood wird ausgeführt
             }
 
             Koerperteil.Zeichnen(Spielfeld, _startPunkt); //Snake wird auf dem Canvas, auf der aktuellen Koordinate gezeichnet
-            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Interval = TimeSpan.FromMilliseconds(50);
             timer.Tick += Animation; //Methode Animation wird kontinuierlich abgefragt
             timer.Tick += Check; //Methode Check wird kontinuierlich abgefragt
             timer.Start(); //Timer startet bei Start der Anwendung
