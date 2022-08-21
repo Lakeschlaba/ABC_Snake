@@ -176,10 +176,10 @@ namespace ABC_Snake
         public void CheckCollision() //Kollision der Snake mit dem Food und sich selbst
         {
             int n = 0;
-            foreach (Point foodpos in _foodPoint) //Kollision der Snake mit Food
+            foreach (Point foodpos in _foodPoint) //Kollision der Snake mit Food //definiere die Point variable neu, aus der Point list z.43
             {
 
-                if ((Math.Abs(foodpos.X - _aktuellePos.X) < 10) && (Math.Abs(foodpos.Y - _aktuellePos.Y) < 10))
+                if ((Math.Abs(foodpos.X - _aktuellePos.X) < 10) && (Math.Abs(foodpos.Y - _aktuellePos.Y) < 10)) //Die differenz zwieschen abstand des Snakekopfs und dem Food wird ermittelt, wenn die differenz kleiner ist als der Snakekopf(10) wird das Food "gegessen"
                 {
                     Koerperteil.laenge += 5; //Snakelänge wird um 5 addiert
                     score += 1; //Score wird um 1 addiert
@@ -196,7 +196,7 @@ namespace ABC_Snake
             for (int q = 0; q < (Koerperteil._snakePoints.Count - 1*2); q++) //Kollision der Snake mit sich selbst
             {
                 Point point = new Point(Koerperteil._snakePoints[q].X, Koerperteil._snakePoints[q].Y);
-                if ((Math.Abs(point.X - _aktuellePos.X) < (1)) && (Math.Abs(point.Y - _aktuellePos.Y) < (1)))
+                if ((Math.Abs(point.X - _aktuellePos.X) < (1)) && (Math.Abs(point.Y - _aktuellePos.Y) < (1))) //Die differenz der Abstände von X und Y zwischen dem Kopf und den weiteren Punkten der Snake
                 {
                     SnakeOver(); //Methode SnakeOver wird ausgeführt
                 }
