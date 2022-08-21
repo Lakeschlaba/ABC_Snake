@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABC_Snake"
         mc:Ignorable="d"
-        Title="Snake Game" Height="400" Width="700" ResizeMode="NoResize" KeyDown="Window_KeyDown" WindowStartupLocation="CenterScreen">
+        Title="Snake Game" Height="400" Width="400" ResizeMode="NoResize" KeyDown="Window_KeyDown" WindowStartupLocation="CenterScreen">
     <Border BorderThickness="2" BorderBrush="red" CornerRadius="2" MaxWidth="700" MaxHeight="400">
         <Grid Background="Black">
             <Grid.ColumnDefinitions>
@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Canvas Name="Spielfeld"  Grid.Column="1" HorizontalAlignment="Stretch" MaxHeight="400" MaxWidth="700" ></Canvas>
-            <Label Name="labelScore" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="658,0,0,0" VerticalAlignment="Top" Foreground="red" FontWeight="Bold"/>
+            <Label Name="labelScore" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="351,0,0,0" VerticalAlignment="Top" Foreground="red" FontWeight="Bold" Height="30" Width="45"/>
         </Grid>
     </Border>
 </Window>

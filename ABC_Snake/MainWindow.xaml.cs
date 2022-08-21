@@ -45,8 +45,6 @@ namespace ABC_Snake
         public int Hoehe = 10; //Höhe des Foods
         public Color Farbe = Colors.Red; //Farbe des Foods
 
-
-
         public MainWindow()
         {
 
@@ -68,12 +66,12 @@ namespace ABC_Snake
         }
 
 
-        private enum Movingdirection
+        private enum Movingdirection // Aufzählung
         {
-            ObenW = 10,
-            UntenS = 8,
-            LinksA = 9,
-            RechtsD = 7
+            ObenW = 4,
+            UntenS = 3,
+            LinksA = 2,
+            RechtsD = 1
         };
 
         void Check(object sender, EventArgs e)
@@ -106,10 +104,11 @@ namespace ABC_Snake
                     break; //Springt aus dem switch statement
             }
 
-            if ((_aktuellePos.X < 0) || (_aktuellePos.X > 670) || (_aktuellePos.Y < 0) || (_aktuellePos.Y > 345)) //Wenn Snakes aktuelle Koordinate größer/kleiner ist, als die Koordinaten der Border, wird die Methode SnakeOver ausgeführt
+            if ((_aktuellePos.X < 0) || (_aktuellePos.X > 370) || (_aktuellePos.Y < 0) || (_aktuellePos.Y > 345)) //Wenn Snakes aktuelle Koordinate größer/kleiner ist, als die Koordinaten der Border, wird die Methode SnakeOver ausgeführt
             {
                 SnakeOver(); //SnakeOver Methode wird ausgeführt
             }
+
             
         }
         
@@ -165,7 +164,7 @@ namespace ABC_Snake
             pinsel.Color = Farbe;
             blockFood.Fill = pinsel;
 
-            Point foodPoint = new Point(rnd.Next(5, 665), rnd.Next(5, 340)); //665, 340  //Random Koordinate zwichen 5-665X und 5-340Y für Food 
+            Point foodPoint = new Point(rnd.Next(5, 365), rnd.Next(5, 340)); //665, 340  //Random Koordinate zwichen 5-665X und 5-340Y für Food 
 
             Canvas.SetTop(blockFood, foodPoint.Y);
             Canvas.SetLeft(blockFood, foodPoint.X);
