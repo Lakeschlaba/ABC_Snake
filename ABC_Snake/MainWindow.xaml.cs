@@ -65,7 +65,7 @@ namespace ABC_Snake
         }
 
 
-        private enum Bewgungsrichtung // Aufzählung
+        private enum Bewgungsrichtung //Aufzählung
         {
             ObenW = 4, //Mit Werten gesetz weil sonst automatisch ObenW = 0 wäre und sofort ausgeführt werden würde
             UntenS = 3,

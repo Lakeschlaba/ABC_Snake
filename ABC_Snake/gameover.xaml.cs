@@ -22,7 +22,7 @@ namespace ABC_Snake
             InitializeComponent();
             if (playSound == true)
             {
-                backgroundSound.PlayLooping(); //Spilet den Sound ab und das in einem Loop
+                backgroundSound.PlayLooping(); //Spielt den Sound ab und das in einem Loop
             }
         }
 

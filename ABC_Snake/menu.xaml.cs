@@ -21,7 +21,7 @@ namespace ABC_Snake
         public menu() //Konstruktor (haben keinen Rückgabewert)
         {
             InitializeComponent();
-            backgroundSound.PlayLooping(); //Spilet den Sound ab und das in einem Loop
+            backgroundSound.PlayLooping(); //Spielt den Sound ab und das in einem Loop
         }
 
         private void GameStartBtn_Click(object sender, RoutedEventArgs e) //Wird Button namens GameStartBtn geklickt wird diese Methode ausgeführt
