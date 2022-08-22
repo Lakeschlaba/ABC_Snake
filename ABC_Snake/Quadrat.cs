@@ -20,7 +20,7 @@ namespace ABC_Snake
     public class Quadrat
     {
         // Eigenschaft
-        public List<Point> _snakePoints = new List<Point>(); // X und Y Koordinaten-Liste für Snake
+        public List<Point> _snakePoints = new List<Point>(); //X und Y Koordinaten-Liste für Snake
 
         public int Breite = 10;
         public int Hoehe = 10;
