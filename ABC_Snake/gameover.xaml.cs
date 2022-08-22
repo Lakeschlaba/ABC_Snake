@@ -17,10 +17,13 @@ namespace ABC_Snake
     { 
         SoundPlayer backgroundSound = new SoundPlayer(@"C:\Users\gereo\Documents\ProgrammeC#\ABC_Snake\ABC_Snake_Game\Sounds\YiJianMei.wav"); //Soundfile für den Hintergrund
 
-        public gameover()
+        public gameover(bool playSound) //Konstruktor in dem ich mit bool abfrage ob der Sound abgespielt werden soll
         {
             InitializeComponent();
-            backgroundSound.PlayLooping(); //Spilet den Sound ab und das in einem Loop
+            if (playSound == true)
+            {
+                backgroundSound.PlayLooping(); //Spilet den Sound ab und das in einem Loop
+            }
         }
 
         private void PlayAgainBtn_Click(object sender, RoutedEventArgs e) //Wird Button namens PlayAgainBtn geklickt wird diese Methode ausgeführt

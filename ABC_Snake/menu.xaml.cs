@@ -18,7 +18,7 @@ namespace ABC_Snake
 
         SoundPlayer backgroundSound = new SoundPlayer(@"C:\Users\gereo\Documents\ProgrammeC#\ABC_Snake\ABC_Snake_Game\Sounds\YiJianMei.wav"); //Soundfile für den Hintergrund
 
-        public menu()
+        public menu() //Konstruktor (haben keinen Rückgabewert)
         {
             InitializeComponent();
             backgroundSound.PlayLooping(); //Spilet den Sound ab und das in einem Loop

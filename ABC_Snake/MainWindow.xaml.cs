@@ -45,12 +45,11 @@ namespace ABC_Snake
         public int Hoehe = 10; //Höhe des Foods
         public Color Farbe = Colors.Red; //Farbe des Foods
 
-        public MainWindow()
+        public MainWindow() //Konstruktor (haben keinen Rückgabewert)
         {
 
             InitializeComponent();
 
-            //GameState.itemCount = 1;
             for (int n = 0; n < 1; n++) //Solange n kleiner als 1 ist wird folgenes ausgeführt
             {
                 ZeichnenFood(n); //Methode ZeichnenFood wird ausgeführt
@@ -61,14 +60,14 @@ namespace ABC_Snake
             timer.Tick += Animation; //Methode Animation wird kontinuierlich abgefragt
             timer.Tick += Check; //Methode Check wird kontinuierlich abgefragt
             timer.Start(); //Timer startet bei Start der Anwendung
-            _aktuellePos = _startPunkt;
+            _aktuellePos = _startPunkt; //Aktuelle Position mit Startpunkt gleich setzten
 
         }
 
 
-        private enum Movingdirection // Aufzählung
+        private enum Bewgungsrichtung // Aufzählung
         {
-            ObenW = 4,
+            ObenW = 4, //Mit Werten gesetz weil sonst automatisch ObenW = 0 wäre und sofort ausgeführt werden würde
             UntenS = 3,
             LinksA = 2,
             RechtsD = 1
@@ -86,19 +85,19 @@ namespace ABC_Snake
 
             switch (richtung)
             {
-                case (int)Movingdirection.UntenS:
+                case (int)Bewgungsrichtung.UntenS:
                     _aktuellePos.Y -= 5; //Aktuelle Y-Koordinate wird um 5 subtrahiert
                     Koerperteil.Zeichnen(Spielfeld, _aktuellePos); //Snake wird auf Canvas(Spielfeld) und der aktuellen Koordinate gezichnet
                     break; //Springt aus dem switch statement
-                case (int)Movingdirection.ObenW:
+                case (int)Bewgungsrichtung.ObenW:
                     _aktuellePos.Y += 5; //Aktuelle Y-Koordinate wird um 5 addiert
                     Koerperteil.Zeichnen(Spielfeld, _aktuellePos); //Snake wird auf Canvas(Spielfeld) und der aktuellen Koordinate gezichnet
                     break; //Springt aus dem switch statement
-                case (int)Movingdirection.RechtsD:
+                case (int)Bewgungsrichtung.RechtsD:
                     _aktuellePos.X += 5; //Aktuelle X-Koordinate wird um 5 addiert
                     Koerperteil.Zeichnen(Spielfeld, _aktuellePos); //Snake wird auf Canvas(Spielfeld) und der aktuellen Koordinate gezichnet
                     break; //Springt aus dem switch statement
-                case (int)Movingdirection.LinksA:
+                case (int)Bewgungsrichtung.LinksA:
                     _aktuellePos.X -= 5; //Aktuelle X-Koordinate wird um 5 subtrahiert
                     Koerperteil.Zeichnen(Spielfeld, _aktuellePos); //Snake wird auf Canvas(Spielfeld) und der aktuellen Koordinate gezichnet
                     break; //Springt aus dem switch statement
@@ -118,20 +117,20 @@ namespace ABC_Snake
             switch (e.Key)
             {
                 case Key.W: //Im Fall das W gedrückt wird, wird folgendes ausgeführt:
-                    if (vorhaerigeRichtung != (int)Movingdirection.ObenW)
-                        richtung = (int)Movingdirection.UntenS;
+                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.ObenW) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist
+                        richtung = (int)Bewgungsrichtung.UntenS;
                     break; //Springt aus dem switch statement
                 case Key.S: //Im Fall das S gedrückt wird, wird folgendes ausgeführt:
-                    if (vorhaerigeRichtung != (int)Movingdirection.UntenS)
-                        richtung = (int)Movingdirection.ObenW;
+                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.UntenS) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist
+                        richtung = (int)Bewgungsrichtung.ObenW;
                     break; //Springt aus dem switch statement
                 case Key.A: //Im Fall das A gedrückt wird, wird folgendes ausgeführt:
-                    if (vorhaerigeRichtung != (int)Movingdirection.RechtsD)
-                        richtung = (int)Movingdirection.LinksA;
+                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.RechtsD) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist
+                        richtung = (int)Bewgungsrichtung.LinksA;
                     break; //Springt aus dem switch statement
                 case Key.D: //Im Fall das D gedrückt wird, wird folgendes ausgeführt:
-                    if (vorhaerigeRichtung != (int)Movingdirection.LinksA)
-                        richtung = (int)Movingdirection.RechtsD;
+                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.LinksA) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist
+                        richtung = (int)Bewgungsrichtung.RechtsD;
                     break; //Springt aus dem switch statement
             }
 
@@ -149,7 +148,7 @@ namespace ABC_Snake
 
         public void exit() //exit Methode für Game Over
         {
-            gameover window = new gameover();
+            gameover window = new gameover(true); //Ist true wird die if abfrage im Konstruktor ausgeführt(Sound wird abgespielt)
             window.Show(); //gameover Fenster wird ausgeführt
             this.Close(); //Alles andere schließt sich
         }
@@ -164,12 +163,12 @@ namespace ABC_Snake
             pinsel.Color = Farbe;
             blockFood.Fill = pinsel;
 
-            Point foodPoint = new Point(rnd.Next(5, 365), rnd.Next(5, 340)); //665, 340  //Random Koordinate zwichen 5-665X und 5-340Y für Food 
+            Point foodPoint = new Point(rnd.Next(5, 365), rnd.Next(5, 340)); //365X, 340Y  //Random Koordinate zwichen 5-365X und 5-340Y für Food 
 
-            Canvas.SetTop(blockFood, foodPoint.Y);
-            Canvas.SetLeft(blockFood, foodPoint.X);
-            Spielfeld.Children.Insert(index, blockFood);
-            _foodPoint.Insert(index, foodPoint);
+            Canvas.SetTop(blockFood, foodPoint.Y); //Y-Position des blockfood's auf Canvas(Speilfeld)
+            Canvas.SetLeft(blockFood, foodPoint.X); //X-Position des blockfood's auf Canvas(Spielfeld)
+            Spielfeld.Children.Insert(index, blockFood); //blockfood wird auf Canvas(Speilfeld) gezeichnet
+            _foodPoint.Insert(index, foodPoint); //foodpoint wird der Lsite _foodPoint hinzugefügt
 
         }
 

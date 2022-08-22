@@ -20,19 +20,18 @@ namespace ABC_Snake
     public class Quadrat
     {
         // Eigenschaft
-        public List<Point> _snakePoints = new List<Point>();
+        public List<Point> _snakePoints = new List<Point>(); // X und Y Koordinaten-Liste für Snake
 
         public int Breite = 10;
         public int Hoehe = 10;
         public int X;
         public int Y;
-        public int laenge = 1;
+        public int laenge = 1; //Länge der Snake bei Start
 
         public Color Farbe = Colors.White;
 
         public void Zeichnen(Canvas Spielfeld, Point point)
         {
-            //GameState.snakeCount++;
 
             Rectangle block = new Rectangle();
             block.Height = Hoehe;
@@ -49,22 +48,13 @@ namespace ABC_Snake
             Spielfeld.Children.Add(block);
             _snakePoints.Add(point);
 
-            if (count > laenge)
+            if (count > laenge) //Letztes Stück(Schwanz) wird gelöscht, Kombination mit Dispatchtimer-Effekt entsteht die Illusion der Bewgung der Schlange
             {
                 Spielfeld.Children.RemoveAt(count - laenge + 0);
                 _snakePoints.RemoveAt(count - laenge);
             }
 
         }
-
-        //public void remove(Canvas Spielfeld)
-        //{
-            //if (GameState.snakeCount > 0)
-            //{
-                //Spielfeld.Children.RemoveAt(GameState.itemCount);
-            //}
-
-        //}
 
     }
 }
