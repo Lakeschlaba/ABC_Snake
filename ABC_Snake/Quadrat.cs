@@ -22,23 +22,22 @@ namespace ABC_Snake
         // Eigenschaft
         public List<Point> _snakePoints = new List<Point>(); //X und Y Koordinaten-Liste für Snake
 
-        public int Breite = 10;
-        public int Hoehe = 10;
+        public int breite = 10;
+        public int hoehe = 10;
         public int X;
         public int Y;
         public int laenge = 1; //Länge der Snake bei Start
-
-        public Color Farbe = Colors.White;
+        public Color farbe = Colors.White;
 
         public void Zeichnen(Canvas Spielfeld, Point point)
         {
 
             Rectangle block = new Rectangle();
-            block.Height = Hoehe;
-            block.Width = Breite;
+            block.Height = hoehe;
+            block.Width = breite;
 
             SolidColorBrush pinsel = new SolidColorBrush(Colors.White);
-            pinsel.Color = Farbe;
+            pinsel.Color = farbe;
             block.Fill = pinsel;
 
             Canvas.SetTop(block, point.Y);

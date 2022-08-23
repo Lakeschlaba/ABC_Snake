@@ -10,11 +10,10 @@ using System.Windows.Threading;
 
 namespace ABC_Snake
 {
-    /// <summary>
-    /// Interaktionslogik für gameover.xaml
-    /// </summary>
+   
     public partial class gameover : Window
     { 
+
         SoundPlayer backgroundSound = new SoundPlayer(@"C:\Users\gereo\Documents\ProgrammeC#\ABC_Snake\ABC_Snake_Game\Sounds\YiJianMei.wav"); //Soundfile für den Hintergrund
 
         public gameover(bool playSound) //Konstruktor in dem ich mit bool abfrage ob der Sound abgespielt werden soll

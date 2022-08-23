@@ -41,9 +41,9 @@ namespace ABC_Snake
         public Rectangle blockFood = new Rectangle(); //Foodobjekt wird erstellt
         public Random rnd = new Random();   //Random Zahlgenerator namens rnd wird erstellt
         public List<Point> _foodPoint = new List<Point>(); //Point Liste für die rnd Koordinate des Foods
-        public int Breite = 10; //Breite des Foods
-        public int Hoehe = 10; //Höhe des Foods
-        public Color Farbe = Colors.Red; //Farbe des Foods
+        public int breite = 10; //Breite des Foods
+        public int hoehe = 10; //Höhe des Foods
+        public Color farbe = Colors.Red; //Farbe des Foods
 
         public MainWindow() //Konstruktor (haben keinen Rückgabewert)
         {
@@ -59,11 +59,11 @@ namespace ABC_Snake
             timer.Interval = TimeSpan.FromMilliseconds(50);
             timer.Tick += Animation; //Methode Animation wird kontinuierlich abgefragt
             timer.Tick += Check; //Methode Check wird kontinuierlich abgefragt
+            timer.Tick += Level;
             timer.Start(); //Timer startet bei Start der Anwendung
             _aktuellePos = _startPunkt; //Aktuelle Position mit Startpunkt gleich setzten
 
         }
-
 
         private enum Bewgungsrichtung //Aufzählung
         {
@@ -71,13 +71,30 @@ namespace ABC_Snake
             UntenS = 3,
             LinksA = 2,
             RechtsD = 1
-        };
+        }
+
+        public void Level(object sender, EventArgs e) //Erhöht die Schwierigkeit nach einem gewissen Score
+        {
+            if(score >= 1) //Beträgt der Score 1 oder mehr wird der Timer-Intervall auf 40 millisekunden heruntergesetzt
+            {
+                timer.Interval = TimeSpan.FromMilliseconds(40);
+            }
+
+            if(score >= 5) //Beträgt der Score 5 oder mehr wird der Timer-Intervall auf 30 millisekunden heruntergesetzt
+            {
+                timer.Interval = TimeSpan.FromMilliseconds(30);
+            }
+
+            if (score >= 10) //Beträgt der Score 10 oder mehr wird der Timer-Intervall auf 20 millisekunden heruntergesetzt
+            {
+                timer.Interval = TimeSpan.FromMilliseconds(20);
+            }
+        }
 
         void Check(object sender, EventArgs e)
         {
             CheckCollision(); //Methode CheckCollision wird aufgerufen
             labelScore.Content = "" + score; //Aktueller Score wird im Label angezeigt
-
         }
 
         void Animation(object sender, EventArgs e)
@@ -143,10 +160,10 @@ namespace ABC_Snake
             timer.Stop(); //Timer stopt
             deathSound.Play(); //DethSound wird abgespielt
             MessageBox.Show($@"Game Over!" + " This is your score: " + score); //MessageBox mit aktuellem Score wird angezeigt
-            exit(); //Methode exit wird ausgeführt
+            Exit(); //Methode exit wird ausgeführt
         }
 
-        public void exit() //exit Methode für Game Over
+        public void Exit() //exit Methode für Game Over
         {
             gameover window = new gameover(true); //Ist true wird die if abfrage im Konstruktor ausgeführt(Sound wird abgespielt)
             window.Show(); //gameover Fenster wird ausgeführt
@@ -156,11 +173,11 @@ namespace ABC_Snake
         public void ZeichnenFood(int index) //Methode für die Zeichnung des Foods auf der entsprechenden random X und Y Koordinate, auf dem Canvas(Spielfeld)
         {
 
-            blockFood.Height = Hoehe;
-            blockFood.Width = Breite;
+            blockFood.Height = hoehe;
+            blockFood.Width = breite;
 
             SolidColorBrush pinsel = new SolidColorBrush(Colors.Red);
-            pinsel.Color = Farbe;
+            pinsel.Color = farbe;
             blockFood.Fill = pinsel;
 
             Point foodPoint = new Point(rnd.Next(5, 365), rnd.Next(5, 340)); //365X, 340Y  //Random Koordinate zwichen 5-365X und 5-340Y für Food 

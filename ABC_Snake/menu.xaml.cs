@@ -10,9 +10,7 @@ using System.Windows.Threading;
 
 namespace ABC_Snake
 {
-    /// <summary>
-    /// Interaktionslogik für menu.xaml
-    /// </summary>
+
     public partial class menu : Window
     {
 
