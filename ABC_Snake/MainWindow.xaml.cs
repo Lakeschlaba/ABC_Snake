@@ -134,7 +134,7 @@ namespace ABC_Snake
             switch (e.Key)
             {
                 case Key.W: //Im Fall das W gedrückt wird, wird folgendes ausgeführt:
-                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.ObenW) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist
+                    if (vorhaerigeRichtung != (int)Bewgungsrichtung.ObenW) //Prüfen ob die aktuelle Bewgungsrichtung nicht genau entgegengesetzt zur neuen richtung ist //|= Ungleichheitsoperator gibt true zurück oder wenn gleich, false
                         richtung = (int)Bewgungsrichtung.UntenS;
                     break; //Springt aus dem switch statement
                 case Key.S: //Im Fall das S gedrückt wird, wird folgendes ausgeführt:
