@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ABC_Snake.Quadrat">
-    <Position X="10" Y="2.25" Width="1.5" />
+    <Position X="8" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAEAAAAAAACACAAAAEACAAABAAAYAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAACAAAAAAAkCAABAAAAYAA=</HashCode>
       <FileName>Quadrat.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -13,27 +13,20 @@
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="ABC_Snake.MainWindow.Movingdirection">
+      <Enum Name="ABC_Snake.MainWindow.Bewgungsrichtung">
         <TypeIdentifier>
           <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>CAUGAAgQAAAAkAAAoBAIAAAQACCAAAHAAAACBCAAYAA=</HashCode>
+      <HashCode>CAUGAAgQAAAAkAAAoBAIAAAQAACAAADlIAADAAAAYAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ABC_Snake.GameState">
-    <Position X="16" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ABC_Snake.menu">
-    <Position X="14" Y="2.25" Width="1.5" />
+    <Position X="12" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>menu.xaml.cs</FileName>
@@ -41,19 +34,12 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ABC_Snake.gameover">
-    <Position X="12" Y="2.25" Width="1.5" />
+    <Position X="10" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>gameover.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="ABC_Snake.Food">
-    <Position X="8" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAAEAAAAAAAAAAAAABAAAAAQACAAAAEAAAAABAAAYAA=</HashCode>
-      <FileName>Food.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

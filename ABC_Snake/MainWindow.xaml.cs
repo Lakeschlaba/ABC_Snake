@@ -25,7 +25,6 @@ namespace ABC_Snake
         //Kooardinaten
         public Point _startPunkt = new Point(5, 5); //Startkoordinate bei 5X und 5Y
         public Point _aktuellePos = new Point(); //Aktuelle Koordinate der Snake
-
         
         //Sounds
         SoundPlayer deathSound = new SoundPlayer(@"C:\Users\gereo\Documents\ProgrammeC#\ABC_Snake\ABC_Snake_Game\Sounds\missionfailed.wav"); //Soundfile für SnakeOver
